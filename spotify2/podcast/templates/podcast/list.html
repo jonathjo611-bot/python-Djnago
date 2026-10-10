@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Podcasts | Spotify{% endblock %}
+{% block content %}
+<h1>Podcasts</h1>
+<div class="grid">
+    {% for pd in podcasts %}
+    <a class="card" href="{% url 'podcast_detail' pd.id %}">
+        <div class="cover" style="background: linear-gradient(135deg, hsl({{ pd.hue }}, 60%, 40%), hsl({{ pd.hue|add:60 }}, 60%, 25%))">&#127908;</div>
+        <h3>{{ pd.title }}</h3>
+        <p class="muted">{{ pd.host }} &middot; {{ pd.category }}</p>
+        <p class="muted">{{ pd.episodes.count }} episode{{ pd.episodes.count|pluralize }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Order #{{ order.id }} | QuickBite{% endblock %}
+{% block content %}
+<a class="muted" href="{% url 'orders' %}">&larr; My orders</a>
+<h1>Order #{{ order.id }}</h1>
+<p class="muted">{{ order.restaurant.name }} &middot; placed {{ order.created|date:"j M Y, g:i A" }}</p>
+
+<div class="panel">
+    <ol class="steps">
+        {% for s in steps %}
+        <li class="{% if s.done %}done{% endif %} {% if s.now %}now{% endif %}">{{ s.label }}</li>
+        {% endfor %}
+    </ol>
+    {% if order.status != "delivered" %}
+        <p>Arriving in about <b>{{ order.restaurant.delivery_minutes }} minutes</b>.</p>
+        <form method="POST" action="{% url 'order_advance' order.id %}">
+            {% csrf_token %}
+            <button type="submit" class="link">Demo: move to next step &rarr;</button>
+        </form>
+    {% else %}
+        <p><b>Enjoy your meal!</b></p>
+    {% endif %}
+</div>
+
+<div class="two">
+    <div class="panel bill">
+        <h3>Items</h3>
+        {% for i in order.items.all %}
+        <div class="brow"><span>{{ i.quantity }} &times; {{ i.name }}</span><span>&#8377;{{ i.line_total }}</span></div>
+        {% endfor %}
+        <hr>
+        <div class="brow"><span>Item total</span><span>&#8377;{{ order.subtotal }}</span></div>
+        <div class="brow"><span>Delivery fee</span><span>&#8377;{{ order.delivery_fee }}</span></div>
+        <div class="brow"><span>GST</span><span>&#8377;{{ order.tax }}</span></div>
+        <div class="brow grand"><span>TOTAL</span><span>&#8377;{{ order.total }}</span></div>
+    </div>
+    <div class="panel">
+        <h3>Delivering to</h3>
+        <p><b>{{ order.customer_name }}</b><br>{{ order.phone }}</p>
+        <p>{{ order.address|linebreaksbr }}</p>
+        <p class="muted">Payment: {{ order.get_payment_display }}</p>
+    </div>
+</div>
+{% endblock %}

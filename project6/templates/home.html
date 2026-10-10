@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to CineBox</h1>
+
+<h2>Top Movies</h2>
+<div class="grid">
+    {% for m in movies %}
+    <div class="card">
+        <h3><a href="{% url 'movie_detail' m.id %}">{{ m.title }}</a></h3>
+        <p>{{ m.year }} &middot; {{ m.genre }}</p>
+        <p class="rating">&#9733; {{ m.rating }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Popular Series</h2>
+<div class="grid">
+    {% for s in series %}
+    <div class="card">
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.seasons }} seasons &middot; {{ s.genre }}</p>
+        <p class="rating">&#9733; {{ s.rating }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

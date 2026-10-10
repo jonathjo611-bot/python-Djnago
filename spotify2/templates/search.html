@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}Search | Spotify{% endblock %}
+{% block content %}
+<h1>Search</h1>
+{% if not q %}
+    <p class="muted">Type something in the search box above.</p>
+{% elif not found %}
+    <p>Nothing found for "<b>{{ q }}</b>".</p>
+{% else %}
+    <p class="muted">Results for "{{ q }}"</p>
+
+    {% if artists %}
+    <h2>Artists</h2>
+    <div class="grid">
+        {% for a in artists %}
+        <a class="card" href="{% url 'artist_detail' a.id %}">
+            <div class="avatar" style="background: hsl({{ a.hue }}, 55%, 35%)">{{ a.name|slice:":1" }}</div>
+            <h3>{{ a.name }}</h3>
+            <p class="muted">{{ a.genre }}</p>
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if songs %}
+    <h2>Songs</h2>
+    {% include "partials/song_table.html" with songs=songs %}
+    {% endif %}
+
+    {% if podcasts %}
+    <h2>Podcasts</h2>
+    <div class="grid">
+        {% for pd in podcasts %}
+        <a class="card" href="{% url 'podcast_detail' pd.id %}">
+            <h3>{{ pd.title }}</h3>
+            <p class="muted">{{ pd.host }} &middot; {{ pd.category }}</p>
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Playlists | Spotify{% endblock %}
+{% block content %}
+<h1>Playlists</h1>
+<div class="grid">
+    <a class="card" href="{% url 'liked' %}">
+        <div class="cover" style="background: linear-gradient(135deg, #4b2fd6, #a98bf5)">&#9829;</div>
+        <h3>Liked Songs</h3>
+        <p class="muted">Songs you hearted</p>
+    </a>
+    {% for p in playlists %}
+    <a class="card" href="{% url 'playlist_detail' p.id %}">
+        <div class="cover" style="background: linear-gradient(135deg, hsl({{ p.hue }}, 60%, 40%), hsl({{ p.hue|add:60 }}, 60%, 25%))">&#9835;</div>
+        <h3>{{ p.name }}</h3>
+        <p class="muted">{{ p.description }}</p>
+        <p class="muted">{{ p.songs.count }} song{{ p.songs.count|pluralize }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

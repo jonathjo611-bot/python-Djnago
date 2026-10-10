@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Spotify{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/spotify.css' %}">
+</head>
+<body>
+    {% with n=request.resolver_match.url_name %}
+    <nav>
+        <a class="logo" href="{% url 'home' %}">&#9835; Spotify</a>
+        <a href="{% url 'home' %}" class="{% if n == 'home' %}active{% endif %}">Home</a>
+        <a href="{% url 'artist' %}" class="{% if n == 'artist' or n == 'artist_detail' %}active{% endif %}">Artists</a>
+        <a href="{% url 'playlist' %}" class="{% if n == 'playlist' or n == 'playlist_detail' %}active{% endif %}">Playlists</a>
+        <a href="{% url 'podcast' %}" class="{% if n == 'podcast' or n == 'podcast_detail' %}active{% endif %}">Podcasts</a>
+        <a href="{% url 'liked' %}" class="{% if n == 'liked' %}active{% endif %}">&#9829; Liked</a>
+        <form class="search" action="{% url 'search' %}" method="GET">
+            <input name="q" value="{{ q|default:'' }}" placeholder="Search songs, artists, podcasts">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

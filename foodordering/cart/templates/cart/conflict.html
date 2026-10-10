@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Replace cart? | QuickBite{% endblock %}
+{% block content %}
+<div class="panel narrow">
+    <h2>Replace cart items?</h2>
+    <p>Your cart already has items from <b>{{ current.name }}</b>. You can only order from one restaurant at a time.</p>
+    <p>Do you want to clear it and add <b>{{ item.name }}</b> from <b>{{ item.restaurant.name }}</b>?</p>
+    <form method="POST" action="{% url 'cart_add' item.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="replace" value="1">
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit" class="primary">Yes, start a new cart</button>
+        <a class="link" href="{% url 'cart' %}">No, keep my cart</a>
+    </form>
+</div>
+{% endblock %}

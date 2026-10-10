@@ -1,0 +1,8 @@
+[
+ {"model": "library.book", "pk": 1, "fields": {"title": "Wings of Fire", "author": "A. P. J. Abdul Kalam", "genre": "Autobiography", "year": 1999, "available": true}},
+ {"model": "library.book", "pk": 2, "fields": {"title": "The Guide", "author": "R. K. Narayan", "genre": "Fiction", "year": 1958, "available": true}},
+ {"model": "library.book", "pk": 3, "fields": {"title": "Malgudi Days", "author": "R. K. Narayan", "genre": "Fiction", "year": 1943, "available": false}},
+ {"model": "library.book", "pk": 4, "fields": {"title": "A Brief History of Time", "author": "Stephen Hawking", "genre": "Science", "year": 1988, "available": true}},
+ {"model": "library.book", "pk": 5, "fields": {"title": "Python Crash Course", "author": "Eric Matthes", "genre": "Programming", "year": 2015, "available": true}},
+ {"model": "library.book", "pk": 6, "fields": {"title": "Organic Chemistry", "author": "Jonathan Clayden", "genre": "Science", "year": 2001, "available": false}}
+]

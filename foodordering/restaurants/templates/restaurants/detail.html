@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load shop_extras %}
+{% block title %}{{ restaurant.name }} | QuickBite{% endblock %}
+{% block content %}
+<a class="muted" href="{% url 'home' %}">&larr; All restaurants</a>
+<div class="rhead" style="background: linear-gradient(135deg, hsl({{ restaurant.hue }}, 70%, 55%), hsl({{ restaurant.hue|add:40 }}, 70%, 30%))">
+    <div class="emoji">{{ restaurant.emoji }}</div>
+    <div>
+        <h1>{{ restaurant.name }}</h1>
+        <p>{{ restaurant.description }}</p>
+        <p>
+            <span class="rating light">&#9733; {{ restaurant.rating|floatformat:1 }}</span>
+            &nbsp;{{ restaurant.cuisine }} &middot; {{ restaurant.area }} &middot; {{ restaurant.delivery_minutes }} mins
+            &middot; {% if restaurant.delivery_fee == 0 %}Free delivery{% else %}&#8377;{{ restaurant.delivery_fee }} delivery{% endif %}
+            &middot; Min order &#8377;{{ restaurant.min_order }}
+            {% if restaurant.pure_veg %}&middot; <b>Pure Veg</b>{% endif %}
+        </p>
+    </div>
+</div>
+
+{% regroup items by section as sections %}
+{% for sec in sections %}
+<h2 class="section">{{ sec.grouper }}</h2>
+{% for item in sec.list %}
+<div class="dish">
+    <div class="dinfo">
+        <span class="vegmark {% if item.veg %}veg{% else %}nonveg{% endif %}" title="{% if item.veg %}Veg{% else %}Non-veg{% endif %}"></span>
+        {% if item.bestseller %}<em class="best">Bestseller</em>{% endif %}
+        <h3>{{ item.name }}</h3>
+        <p class="price">&#8377;{{ item.price }}</p>
+        {% if item.description %}<p class="muted">{{ item.description }}</p>{% endif %}
+    </div>
+    <div class="daction">
+        {% with qty=qtys|get:item.id %}
+            {% if qty %}
+                {% include "partials/stepper.html" with item=item qty=qty %}
+            {% else %}
+                <form method="POST" action="{% url 'cart_add' item.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button type="submit" class="add">ADD</button>
+                </form>
+            {% endif %}
+        {% endwith %}
+    </div>
+</div>
+{% endfor %}
+{% endfor %}
+
+{% if cart %}
+<a class="cartbar" href="{% url 'cart' %}">
+    <span>{{ cart.count }} item{{ cart.count|pluralize }} &middot; &#8377;{{ cart.subtotal }}</span>
+    <span>View cart &rarr;</span>
+</a>
+{% endif %}
+{% endblock %}

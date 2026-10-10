@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><title>Results</title><style>
+body { font-family: Arial, sans-serif; background: #eef2f7; }
+.box { width: 460px; margin: 50px auto; background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+table { width: 100%; border-collapse: collapse; } th, td { border-bottom: 1px solid #ddd; padding: 6px; text-align: left; }
+nav a { margin-right: 12px; } .errorlist { color: #c0392b; }
+</style></head><body>
+<div class="box" style="width:760px">
+<nav><a href="{% url 'add' %}">Add student</a><a href="{% url 'list' %}">Results</a></nav>
+<h2>Results</h2>
+<p>Class average: <b>{{ class_avg }}%</b></p>
+<table>
+<tr><th>Roll</th><th>Name</th><th>Maths</th><th>Science</th><th>English</th><th>Total</th><th>%</th><th>Grade</th><th></th></tr>
+{% for s in students %}
+<tr>
+  <td>{{ s.roll_no }}</td><td>{{ s.name }}</td><td>{{ s.maths }}</td><td>{{ s.science }}</td><td>{{ s.english }}</td>
+  <td>{{ s.total }}</td><td>{{ s.percentage }}</td><td><b>{{ s.grade }}</b></td>
+  <td><form method="POST" action="{% url 'delete' s.id %}">{% csrf_token %}<button>Delete</button></form></td>
+</tr>
+{% empty %}
+<tr><td colspan="9">No students yet.</td></tr>
+{% endfor %}
+</table>
+</div></body></html>

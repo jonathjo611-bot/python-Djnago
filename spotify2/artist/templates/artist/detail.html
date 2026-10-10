@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}{{ artist.name }} | Spotify{% endblock %}
+{% block content %}
+<a class="muted" href="{% url 'artist' %}">&larr; All artists</a>
+<div class="banner">
+    <div class="avatar big" style="background: hsl({{ artist.hue }}, 55%, 35%)">{{ artist.name|slice:":1" }}</div>
+    <div>
+        <p class="muted">ARTIST</p>
+        <h1>{{ artist.name|title }}</h1>
+        <p>{{ artist.bio|default:"No bio yet." }}</p>
+        <p class="muted">{{ artist.genre }} &middot; {{ artist.followers|intcomma }} followers &middot; {{ songs.count }} song{{ songs.count|pluralize }}</p>
+    </div>
+</div>
+<h2>Popular songs</h2>
+{% include "partials/song_table.html" with songs=songs %}
+{% endblock %}

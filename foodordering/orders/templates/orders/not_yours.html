@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="empty">
+    <h2>Order not found</h2>
+    <p class="muted">This order doesn't exist, or it was placed from a different browser.</p>
+    <a class="primary" href="{% url 'orders' %}">My orders</a>
+</div>
+{% endblock %}

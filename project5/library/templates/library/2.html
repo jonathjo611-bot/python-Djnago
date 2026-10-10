@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><title>{{ book.title }}</title><style>
+body { font-family: Arial, sans-serif; background: #eef2f7; }
+.box { width: 640px; margin: 50px auto; background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+table { width: 100%; border-collapse: collapse; } th, td { border-bottom: 1px solid #ddd; padding: 6px; text-align: left; }
+.yes { color: #1e8449; } .no { color: #c0392b; }
+</style></head><body>
+<div class="box">
+<a href="{% url 'books' %}">&larr; All books</a>
+<h2>{{ book.title }}</h2>
+<p><b>Author:</b> {{ book.author }}</p>
+<p><b>Genre:</b> {{ book.genre }}</p>
+<p><b>Year:</b> {{ book.year }}</p>
+<p><b>Status:</b> {% if book.available %}<span class="yes">Available</span>{% else %}<span class="no">Issued</span>{% endif %}</p>
+</div></body></html>

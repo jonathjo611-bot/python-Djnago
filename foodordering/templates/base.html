@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}QuickBite{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/quickbite.css' %}">
+</head>
+<body>
+    <nav>
+        <a class="logo" href="{% url 'home' %}">QuickBite</a>
+        <div class="links">
+            <a href="{% url 'home' %}">Restaurants</a>
+            <a href="{% url 'orders' %}">My Orders</a>
+            <a href="{% url 'cart' %}" class="cartlink">Cart <span class="badge">{{ cart_count }}</span></a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,394 @@
+[
+{
+ "model": "artist.artist",
+ "pk": 1,
+ "fields": {
+  "name": "S. P. Balasubrahmanyam",
+  "genre": "Indian Film",
+  "bio": "Playback singer who sang in many Indian languages, including Kannada.",
+  "followers": 4200000
+ }
+},
+{
+ "model": "artist.artist",
+ "pk": 2,
+ "fields": {
+  "name": "S. Janaki",
+  "genre": "Indian Film",
+  "bio": "Playback singer known for songs in Kannada, Tamil, Telugu and Malayalam.",
+  "followers": 3100000
+ }
+},
+{
+ "model": "artist.artist",
+ "pk": 3,
+ "fields": {
+  "name": "A. R. Rahman",
+  "genre": "Indian Film",
+  "bio": "Composer and singer known for Indian film music and international collaborations.",
+  "followers": 9800000
+ }
+},
+{
+ "model": "artist.artist",
+ "pk": 4,
+ "fields": {
+  "name": "Arijit Singh",
+  "genre": "Bollywood",
+  "bio": "Playback singer known for Hindi film songs.",
+  "followers": 12500000
+ }
+},
+{
+ "model": "artist.artist",
+ "pk": 5,
+ "fields": {
+  "name": "Taylor Swift",
+  "genre": "Pop",
+  "bio": "Singer-songwriter known for pop and country-pop albums.",
+  "followers": 45000000
+ }
+},
+{
+ "model": "artist.artist",
+ "pk": 6,
+ "fields": {
+  "name": "The Weeknd",
+  "genre": "Pop",
+  "bio": "Canadian singer known for synth-driven pop and R&B.",
+  "followers": 38000000
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 1,
+ "fields": {
+  "title": "Hosa Belaku",
+  "artist": 1,
+  "album": "Kannada Classics",
+  "plays": 8200000,
+  "duration": 245
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 2,
+ "fields": {
+  "title": "Anuraga",
+  "artist": 2,
+  "album": "Kannada Classics",
+  "plays": 6100000,
+  "duration": 232
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 3,
+ "fields": {
+  "title": "Jai Ho",
+  "artist": 3,
+  "album": "Slumdog Millionaire",
+  "plays": 30500000,
+  "duration": 318
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 4,
+ "fields": {
+  "title": "Vande Mataram",
+  "artist": 3,
+  "album": "Vande Mataram",
+  "plays": 18900000,
+  "duration": 330
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 5,
+ "fields": {
+  "title": "Kun Faya Kun",
+  "artist": 3,
+  "album": "Rockstar",
+  "plays": 25400000,
+  "duration": 472
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 6,
+ "fields": {
+  "title": "Tum Hi Ho",
+  "artist": 4,
+  "album": "Aashiqui 2",
+  "plays": 41000000,
+  "duration": 262
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 7,
+ "fields": {
+  "title": "Channa Mereya",
+  "artist": 4,
+  "album": "Ae Dil Hai Mushkil",
+  "plays": 36200000,
+  "duration": 289
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 8,
+ "fields": {
+  "title": "Kesariya",
+  "artist": 4,
+  "album": "Brahmastra",
+  "plays": 33800000,
+  "duration": 268
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 9,
+ "fields": {
+  "title": "Shake It Off",
+  "artist": 5,
+  "album": "1989",
+  "plays": 52000000,
+  "duration": 219
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 10,
+ "fields": {
+  "title": "Blank Space",
+  "artist": 5,
+  "album": "1989",
+  "plays": 48500000,
+  "duration": 231
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 11,
+ "fields": {
+  "title": "Love Story",
+  "artist": 5,
+  "album": "Fearless",
+  "plays": 44100000,
+  "duration": 235
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 12,
+ "fields": {
+  "title": "Blinding Lights",
+  "artist": 6,
+  "album": "After Hours",
+  "plays": 61000000,
+  "duration": 200
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 13,
+ "fields": {
+  "title": "Save Your Tears",
+  "artist": 6,
+  "album": "After Hours",
+  "plays": 39800000,
+  "duration": 215
+ }
+},
+{
+ "model": "playlist.song",
+ "pk": 14,
+ "fields": {
+  "title": "Starboy",
+  "artist": 6,
+  "album": "Starboy",
+  "plays": 47200000,
+  "duration": 230
+ }
+},
+{
+ "model": "playlist.playlist",
+ "pk": 1,
+ "fields": {
+  "name": "Morning Boost",
+  "description": "Upbeat songs to start the day",
+  "songs": [
+   12,
+   9,
+   14,
+   3
+  ]
+ }
+},
+{
+ "model": "playlist.playlist",
+ "pk": 2,
+ "fields": {
+  "name": "Bollywood Hits",
+  "description": "Big Hindi film songs",
+  "songs": [
+   6,
+   7,
+   8,
+   5
+  ]
+ }
+},
+{
+ "model": "playlist.playlist",
+ "pk": 3,
+ "fields": {
+  "name": "Late Night Drive",
+  "description": "Smooth and moody",
+  "songs": [
+   12,
+   10,
+   14,
+   13
+  ]
+ }
+},
+{
+ "model": "playlist.playlist",
+ "pk": 4,
+ "fields": {
+  "name": "Kannada Classics",
+  "description": "Timeless Kannada melodies",
+  "songs": [
+   1,
+   2
+  ]
+ }
+},
+{
+ "model": "playlist.playlist",
+ "pk": 5,
+ "fields": {
+  "name": "Love Songs",
+  "description": "For the romantic mood",
+  "songs": [
+   10,
+   11,
+   6,
+   7
+  ]
+ }
+},
+{
+ "model": "podcast.podcast",
+ "pk": 1,
+ "fields": {
+  "title": "Code & Chai",
+  "host": "Meera Nair",
+  "category": "Technology",
+  "description": "Casual conversations about programming, careers and learning to code."
+ }
+},
+{
+ "model": "podcast.podcast",
+ "pk": 2,
+ "fields": {
+  "title": "Chemistry Cafe",
+  "host": "Dr. Arun Rao",
+  "category": "Science",
+  "description": "Everyday chemistry explained over a cup of coffee."
+ }
+},
+{
+ "model": "podcast.podcast",
+ "pk": 3,
+ "fields": {
+  "title": "Startup Stories",
+  "host": "Kavya Menon",
+  "category": "Business",
+  "description": "Founders share how their ideas became companies."
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 1,
+ "fields": {
+  "podcast": 1,
+  "title": "Why Django is a great first framework",
+  "minutes": 32,
+  "released": "2026-09-12"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 2,
+ "fields": {
+  "podcast": 1,
+  "title": "Models, forms and views explained",
+  "minutes": 41,
+  "released": "2026-09-26"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 3,
+ "fields": {
+  "podcast": 1,
+  "title": "Debugging without panic",
+  "minutes": 28,
+  "released": "2026-10-03"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 4,
+ "fields": {
+  "podcast": 2,
+  "title": "Why does bread rise?",
+  "minutes": 24,
+  "released": "2026-09-05"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 5,
+ "fields": {
+  "podcast": 2,
+  "title": "The chemistry of drug solubility",
+  "minutes": 37,
+  "released": "2026-09-19"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 6,
+ "fields": {
+  "podcast": 3,
+  "title": "From college project to first customer",
+  "minutes": 45,
+  "released": "2026-08-29"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 7,
+ "fields": {
+  "podcast": 3,
+  "title": "Building with a two-person team",
+  "minutes": 39,
+  "released": "2026-09-22"
+ }
+},
+{
+ "model": "podcast.episode",
+ "pk": 8,
+ "fields": {
+  "podcast": 3,
+  "title": "What investors actually ask",
+  "minutes": 43,
+  "released": "2026-10-01"
+ }
+}
+]

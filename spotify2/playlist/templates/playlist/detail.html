@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ playlist.name }} | Spotify{% endblock %}
+{% block content %}
+<a class="muted" href="{% url 'playlist' %}">&larr; All playlists</a>
+<div class="banner">
+    <div class="cover big" style="background: linear-gradient(135deg, hsl({{ playlist.hue }}, 60%, 40%), hsl({{ playlist.hue|add:60 }}, 60%, 25%))">&#9835;</div>
+    <div>
+        <p class="muted">PLAYLIST</p>
+        <h1>{{ playlist.name }}</h1>
+        <p>{{ playlist.description }}</p>
+        <p class="muted">{{ songs.count }} song{{ songs.count|pluralize }} &middot; {{ playlist.total_duration }}</p>
+    </div>
+</div>
+{% include "partials/song_table.html" with songs=songs %}
+{% endblock %}

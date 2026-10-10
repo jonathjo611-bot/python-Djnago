@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Your cart | QuickBite{% endblock %}
+{% block content %}
+<h1>Your cart</h1>
+{% if cart.lines %}
+<p class="muted">From <a href="{% url 'restaurant_detail' cart.restaurant.id %}"><b>{{ cart.restaurant.name }}</b></a></p>
+
+<div class="panel">
+    {% for line in cart.lines %}
+    <div class="cline">
+        <span class="vegmark {% if line.item.veg %}veg{% else %}nonveg{% endif %}"></span>
+        <div class="cname">{{ line.item.name }}<br><span class="muted">&#8377;{{ line.item.price }} each</span></div>
+        {% include "partials/stepper.html" with item=line.item qty=line.qty %}
+        <div class="ctotal">&#8377;{{ line.total }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="panel bill">
+    <h3>Bill details</h3>
+    <div class="brow"><span>Item total</span><span>&#8377;{{ cart.subtotal }}</span></div>
+    <div class="brow"><span>Delivery fee</span><span>{% if cart.delivery_fee == 0 %}<b class="free">FREE</b>{% else %}&#8377;{{ cart.delivery_fee }}{% endif %}</span></div>
+    <div class="brow"><span>GST ({{ cart.tax_percent }}%)</span><span>&#8377;{{ cart.tax }}</span></div>
+    <div class="brow grand"><span>TO PAY</span><span>&#8377;{{ cart.total }}</span></div>
+</div>
+
+{% if below_min %}
+<p class="warn">Minimum order for {{ cart.restaurant.name }} is &#8377;{{ cart.restaurant.min_order }}. Add &#8377;{{ short_by }} more to check out.</p>
+{% else %}
+<a class="primary" href="{% url 'checkout' %}">Proceed to checkout</a>
+{% endif %}
+
+<form method="POST" action="{% url 'cart_clear' %}" class="inline">
+    {% csrf_token %}
+    <button type="submit" class="link">Clear cart</button>
+</form>
+{% else %}
+<div class="empty">
+    <p>Your cart is empty.</p>
+    <a class="primary" href="{% url 'home' %}">Browse restaurants</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}Spotify | Home{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Good music, all in one place</h1>
+    <p>Browse artists, playlists and podcasts, and heart the songs you love.</p>
+</section>
+
+<h2>Top artists</h2>
+<div class="grid">
+    {% for a in artists %}
+    <a class="card" href="{% url 'artist_detail' a.id %}">
+        <div class="avatar" style="background: hsl({{ a.hue }}, 55%, 35%)">{{ a.name|slice:":1" }}</div>
+        <h3>{{ a.name }}</h3>
+        <p class="muted">{{ a.genre }} &middot; {{ a.followers|intcomma }} followers</p>
+    </a>
+    {% endfor %}
+</div>
+
+<h2>Most played songs</h2>
+{% include "partials/song_table.html" with songs=songs %}
+
+<h2>Playlists</h2>
+<div class="grid">
+    {% for p in playlists %}
+    <a class="card" href="{% url 'playlist_detail' p.id %}">
+        <div class="cover" style="background: linear-gradient(135deg, hsl({{ p.hue }}, 60%, 40%), hsl({{ p.hue|add:60 }}, 60%, 25%))">&#9835;</div>
+        <h3>{{ p.name }}</h3>
+        <p class="muted">{{ p.description }}</p>
+    </a>
+    {% endfor %}
+</div>
+
+<h2>Podcasts</h2>
+<div class="grid">
+    {% for pd in podcasts %}
+    <a class="card" href="{% url 'podcast_detail' pd.id %}">
+        <div class="cover" style="background: linear-gradient(135deg, hsl({{ pd.hue }}, 60%, 40%), hsl({{ pd.hue|add:60 }}, 60%, 25%))">&#127908;</div>
+        <h3>{{ pd.title }}</h3>
+        <p class="muted">{{ pd.host }} &middot; {{ pd.category }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

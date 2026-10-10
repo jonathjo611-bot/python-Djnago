@@ -1,0 +1,1182 @@
+[
+{
+ "model": "restaurants.restaurant",
+ "pk": 1,
+ "fields": {
+  "name": "Biryani Bazaar",
+  "cuisine": "Biryani",
+  "area": "Central Market",
+  "emoji": "🍛",
+  "description": "Slow-cooked dum biryanis and kebabs",
+  "rating": 4.4,
+  "delivery_minutes": 35,
+  "delivery_fee": 30,
+  "min_order": 149,
+  "pure_veg": false
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 2,
+ "fields": {
+  "name": "Dosa Darbar",
+  "cuisine": "South Indian",
+  "area": "Lake Road",
+  "emoji": "🥞",
+  "description": "Crispy dosas, soft idlis and filter coffee",
+  "rating": 4.5,
+  "delivery_minutes": 25,
+  "delivery_fee": 20,
+  "min_order": 99,
+  "pure_veg": true
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 3,
+ "fields": {
+  "name": "Pizza Piazza",
+  "cuisine": "Italian",
+  "area": "Tech Park",
+  "emoji": "🍕",
+  "description": "Wood-fired style pizzas and creamy pastas",
+  "rating": 4.1,
+  "delivery_minutes": 30,
+  "delivery_fee": 40,
+  "min_order": 199,
+  "pure_veg": false
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 4,
+ "fields": {
+  "name": "Wok This Way",
+  "cuisine": "Chinese",
+  "area": "Station Road",
+  "emoji": "🍜",
+  "description": "Noodles, fried rice and street-style starters",
+  "rating": 4.0,
+  "delivery_minutes": 32,
+  "delivery_fee": 35,
+  "min_order": 149,
+  "pure_veg": false
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 5,
+ "fields": {
+  "name": "Burger Barn",
+  "cuisine": "Burgers",
+  "area": "Old Town",
+  "emoji": "🍔",
+  "description": "Juicy burgers, loaded fries and shakes",
+  "rating": 4.2,
+  "delivery_minutes": 22,
+  "delivery_fee": 25,
+  "min_order": 129,
+  "pure_veg": false
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 6,
+ "fields": {
+  "name": "Kebab Kingdom",
+  "cuisine": "North Indian",
+  "area": "Garden Street",
+  "emoji": "🍢",
+  "description": "Tandoor specials, rich curries and fresh naan",
+  "rating": 4.3,
+  "delivery_minutes": 38,
+  "delivery_fee": 30,
+  "min_order": 199,
+  "pure_veg": false
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 7,
+ "fields": {
+  "name": "Sweet Tooth Mithai",
+  "cuisine": "Desserts",
+  "area": "Hill View",
+  "emoji": "🍮",
+  "description": "Traditional sweets and festive treats",
+  "rating": 4.6,
+  "delivery_minutes": 28,
+  "delivery_fee": 0,
+  "min_order": 99,
+  "pure_veg": true
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 8,
+ "fields": {
+  "name": "Veggie Vibes",
+  "cuisine": "Healthy",
+  "area": "Beach Road",
+  "emoji": "🥗",
+  "description": "Fresh bowls, wraps and smoothies",
+  "rating": 4.2,
+  "delivery_minutes": 27,
+  "delivery_fee": 30,
+  "min_order": 149,
+  "pure_veg": true
+ }
+},
+{
+ "model": "restaurants.restaurant",
+ "pk": 9,
+ "fields": {
+  "name": "Chettinad Chronicles",
+  "cuisine": "South Indian",
+  "area": "Old Town",
+  "emoji": "🍗",
+  "description": "Spicy Chettinad curries, parotta and seafood",
+  "rating": 4.4,
+  "delivery_minutes": 40,
+  "delivery_fee": 35,
+  "min_order": 199,
+  "pure_veg": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 1,
+ "fields": {
+  "restaurant": 1,
+  "section": "Starters",
+  "section_order": 1,
+  "name": "Chicken 65",
+  "description": "",
+  "price": 199,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 2,
+ "fields": {
+  "restaurant": 1,
+  "section": "Starters",
+  "section_order": 1,
+  "name": "Paneer Tikka",
+  "description": "",
+  "price": 179,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 3,
+ "fields": {
+  "restaurant": 1,
+  "section": "Biryani",
+  "section_order": 2,
+  "name": "Chicken Dum Biryani",
+  "description": "",
+  "price": 249,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 4,
+ "fields": {
+  "restaurant": 1,
+  "section": "Biryani",
+  "section_order": 2,
+  "name": "Mutton Biryani",
+  "description": "",
+  "price": 329,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 5,
+ "fields": {
+  "restaurant": 1,
+  "section": "Biryani",
+  "section_order": 2,
+  "name": "Veg Dum Biryani",
+  "description": "",
+  "price": 199,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 6,
+ "fields": {
+  "restaurant": 1,
+  "section": "Sides",
+  "section_order": 3,
+  "name": "Onion Raita",
+  "description": "",
+  "price": 40,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 7,
+ "fields": {
+  "restaurant": 1,
+  "section": "Desserts",
+  "section_order": 4,
+  "name": "Double Ka Meetha",
+  "description": "",
+  "price": 89,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 8,
+ "fields": {
+  "restaurant": 1,
+  "section": "Desserts",
+  "section_order": 4,
+  "name": "Gulab Jamun (2 pcs)",
+  "description": "",
+  "price": 69,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 9,
+ "fields": {
+  "restaurant": 1,
+  "section": "Drinks",
+  "section_order": 5,
+  "name": "Masala Soda",
+  "description": "",
+  "price": 49,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 10,
+ "fields": {
+  "restaurant": 2,
+  "section": "Tiffin",
+  "section_order": 1,
+  "name": "Idli (2 pcs)",
+  "description": "",
+  "price": 59,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 11,
+ "fields": {
+  "restaurant": 2,
+  "section": "Tiffin",
+  "section_order": 1,
+  "name": "Medu Vada (2 pcs)",
+  "description": "",
+  "price": 69,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 12,
+ "fields": {
+  "restaurant": 2,
+  "section": "Tiffin",
+  "section_order": 1,
+  "name": "Ven Pongal",
+  "description": "",
+  "price": 89,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 13,
+ "fields": {
+  "restaurant": 2,
+  "section": "Dosas",
+  "section_order": 2,
+  "name": "Plain Dosa",
+  "description": "",
+  "price": 79,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 14,
+ "fields": {
+  "restaurant": 2,
+  "section": "Dosas",
+  "section_order": 2,
+  "name": "Masala Dosa",
+  "description": "",
+  "price": 99,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 15,
+ "fields": {
+  "restaurant": 2,
+  "section": "Dosas",
+  "section_order": 2,
+  "name": "Ghee Roast",
+  "description": "",
+  "price": 119,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 16,
+ "fields": {
+  "restaurant": 2,
+  "section": "Dosas",
+  "section_order": 2,
+  "name": "Rava Dosa",
+  "description": "",
+  "price": 109,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 17,
+ "fields": {
+  "restaurant": 2,
+  "section": "Sweets",
+  "section_order": 3,
+  "name": "Kesari Bath",
+  "description": "",
+  "price": 59,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 18,
+ "fields": {
+  "restaurant": 2,
+  "section": "Beverages",
+  "section_order": 4,
+  "name": "Filter Coffee",
+  "description": "",
+  "price": 39,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 19,
+ "fields": {
+  "restaurant": 3,
+  "section": "Starters",
+  "section_order": 1,
+  "name": "Garlic Bread",
+  "description": "",
+  "price": 129,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 20,
+ "fields": {
+  "restaurant": 3,
+  "section": "Pizzas",
+  "section_order": 2,
+  "name": "Margherita",
+  "description": "",
+  "price": 249,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 21,
+ "fields": {
+  "restaurant": 3,
+  "section": "Pizzas",
+  "section_order": 2,
+  "name": "Farmhouse",
+  "description": "",
+  "price": 349,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 22,
+ "fields": {
+  "restaurant": 3,
+  "section": "Pizzas",
+  "section_order": 2,
+  "name": "Chicken Sausage Pizza",
+  "description": "",
+  "price": 379,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 23,
+ "fields": {
+  "restaurant": 3,
+  "section": "Pasta",
+  "section_order": 3,
+  "name": "Pasta Alfredo",
+  "description": "",
+  "price": 229,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 24,
+ "fields": {
+  "restaurant": 3,
+  "section": "Pasta",
+  "section_order": 3,
+  "name": "Penne Arrabbiata",
+  "description": "",
+  "price": 219,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 25,
+ "fields": {
+  "restaurant": 3,
+  "section": "Desserts",
+  "section_order": 4,
+  "name": "Choco Lava Cake",
+  "description": "",
+  "price": 99,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 26,
+ "fields": {
+  "restaurant": 3,
+  "section": "Drinks",
+  "section_order": 5,
+  "name": "Cold Coffee",
+  "description": "",
+  "price": 119,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 27,
+ "fields": {
+  "restaurant": 4,
+  "section": "Soups",
+  "section_order": 1,
+  "name": "Veg Manchow Soup",
+  "description": "",
+  "price": 99,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 28,
+ "fields": {
+  "restaurant": 4,
+  "section": "Starters",
+  "section_order": 2,
+  "name": "Veg Spring Rolls",
+  "description": "",
+  "price": 149,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 29,
+ "fields": {
+  "restaurant": 4,
+  "section": "Starters",
+  "section_order": 2,
+  "name": "Gobi Manchurian",
+  "description": "",
+  "price": 169,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 30,
+ "fields": {
+  "restaurant": 4,
+  "section": "Starters",
+  "section_order": 2,
+  "name": "Chilli Chicken",
+  "description": "",
+  "price": 229,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 31,
+ "fields": {
+  "restaurant": 4,
+  "section": "Noodles & Rice",
+  "section_order": 3,
+  "name": "Veg Hakka Noodles",
+  "description": "",
+  "price": 179,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 32,
+ "fields": {
+  "restaurant": 4,
+  "section": "Noodles & Rice",
+  "section_order": 3,
+  "name": "Schezwan Noodles",
+  "description": "",
+  "price": 189,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 33,
+ "fields": {
+  "restaurant": 4,
+  "section": "Noodles & Rice",
+  "section_order": 3,
+  "name": "Chicken Fried Rice",
+  "description": "",
+  "price": 199,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 34,
+ "fields": {
+  "restaurant": 4,
+  "section": "Drinks",
+  "section_order": 4,
+  "name": "Lemon Iced Tea",
+  "description": "",
+  "price": 79,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 35,
+ "fields": {
+  "restaurant": 5,
+  "section": "Burgers",
+  "section_order": 1,
+  "name": "Classic Veg Burger",
+  "description": "",
+  "price": 129,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 36,
+ "fields": {
+  "restaurant": 5,
+  "section": "Burgers",
+  "section_order": 1,
+  "name": "Crispy Chicken Burger",
+  "description": "",
+  "price": 169,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 37,
+ "fields": {
+  "restaurant": 5,
+  "section": "Burgers",
+  "section_order": 1,
+  "name": "Double Patty Burger",
+  "description": "",
+  "price": 229,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 38,
+ "fields": {
+  "restaurant": 5,
+  "section": "Sides",
+  "section_order": 2,
+  "name": "Peri Peri Fries",
+  "description": "",
+  "price": 99,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 39,
+ "fields": {
+  "restaurant": 5,
+  "section": "Sides",
+  "section_order": 2,
+  "name": "Onion Rings",
+  "description": "",
+  "price": 109,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 40,
+ "fields": {
+  "restaurant": 5,
+  "section": "Sides",
+  "section_order": 2,
+  "name": "Chicken Nuggets (6 pcs)",
+  "description": "",
+  "price": 149,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 41,
+ "fields": {
+  "restaurant": 5,
+  "section": "Drinks",
+  "section_order": 3,
+  "name": "Chocolate Shake",
+  "description": "",
+  "price": 129,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 42,
+ "fields": {
+  "restaurant": 5,
+  "section": "Drinks",
+  "section_order": 3,
+  "name": "Soft Drink",
+  "description": "",
+  "price": 49,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 43,
+ "fields": {
+  "restaurant": 6,
+  "section": "Kebabs",
+  "section_order": 1,
+  "name": "Chicken Seekh Kebab",
+  "description": "",
+  "price": 249,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 44,
+ "fields": {
+  "restaurant": 6,
+  "section": "Kebabs",
+  "section_order": 1,
+  "name": "Paneer Tikka",
+  "description": "",
+  "price": 229,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 45,
+ "fields": {
+  "restaurant": 6,
+  "section": "Curries",
+  "section_order": 2,
+  "name": "Butter Chicken",
+  "description": "",
+  "price": 299,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 46,
+ "fields": {
+  "restaurant": 6,
+  "section": "Curries",
+  "section_order": 2,
+  "name": "Dal Makhani",
+  "description": "",
+  "price": 199,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 47,
+ "fields": {
+  "restaurant": 6,
+  "section": "Breads & Rice",
+  "section_order": 3,
+  "name": "Garlic Naan",
+  "description": "",
+  "price": 49,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 48,
+ "fields": {
+  "restaurant": 6,
+  "section": "Breads & Rice",
+  "section_order": 3,
+  "name": "Butter Roti",
+  "description": "",
+  "price": 25,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 49,
+ "fields": {
+  "restaurant": 6,
+  "section": "Breads & Rice",
+  "section_order": 3,
+  "name": "Jeera Rice",
+  "description": "",
+  "price": 129,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 50,
+ "fields": {
+  "restaurant": 6,
+  "section": "Desserts",
+  "section_order": 4,
+  "name": "Phirni",
+  "description": "",
+  "price": 79,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 51,
+ "fields": {
+  "restaurant": 7,
+  "section": "Hot & Fresh",
+  "section_order": 1,
+  "name": "Jalebi (250 g)",
+  "description": "",
+  "price": 90,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 52,
+ "fields": {
+  "restaurant": 7,
+  "section": "Hot & Fresh",
+  "section_order": 1,
+  "name": "Gulab Jamun (4 pcs)",
+  "description": "",
+  "price": 80,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 53,
+ "fields": {
+  "restaurant": 7,
+  "section": "Milk Sweets",
+  "section_order": 2,
+  "name": "Rasmalai (2 pcs)",
+  "description": "",
+  "price": 120,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 54,
+ "fields": {
+  "restaurant": 7,
+  "section": "Milk Sweets",
+  "section_order": 2,
+  "name": "Mysore Pak (250 g)",
+  "description": "",
+  "price": 180,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 55,
+ "fields": {
+  "restaurant": 7,
+  "section": "Dry Sweets",
+  "section_order": 3,
+  "name": "Kaju Katli (250 g)",
+  "description": "",
+  "price": 250,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 56,
+ "fields": {
+  "restaurant": 7,
+  "section": "Dry Sweets",
+  "section_order": 3,
+  "name": "Soan Papdi (250 g)",
+  "description": "",
+  "price": 150,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 57,
+ "fields": {
+  "restaurant": 7,
+  "section": "Bakes",
+  "section_order": 4,
+  "name": "Chocolate Brownie",
+  "description": "",
+  "price": 110,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 58,
+ "fields": {
+  "restaurant": 7,
+  "section": "Drinks",
+  "section_order": 5,
+  "name": "Badam Milk",
+  "description": "",
+  "price": 70,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 59,
+ "fields": {
+  "restaurant": 8,
+  "section": "Soups",
+  "section_order": 1,
+  "name": "Tomato Basil Soup",
+  "description": "",
+  "price": 129,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 60,
+ "fields": {
+  "restaurant": 8,
+  "section": "Bowls & Salads",
+  "section_order": 2,
+  "name": "Quinoa Bowl",
+  "description": "",
+  "price": 249,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 61,
+ "fields": {
+  "restaurant": 8,
+  "section": "Bowls & Salads",
+  "section_order": 2,
+  "name": "Greek Salad",
+  "description": "",
+  "price": 199,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 62,
+ "fields": {
+  "restaurant": 8,
+  "section": "Bowls & Salads",
+  "section_order": 2,
+  "name": "Millet Khichdi Bowl",
+  "description": "",
+  "price": 169,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 63,
+ "fields": {
+  "restaurant": 8,
+  "section": "Wraps & Toast",
+  "section_order": 3,
+  "name": "Paneer Wrap",
+  "description": "",
+  "price": 179,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 64,
+ "fields": {
+  "restaurant": 8,
+  "section": "Wraps & Toast",
+  "section_order": 3,
+  "name": "Avocado Toast",
+  "description": "",
+  "price": 219,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 65,
+ "fields": {
+  "restaurant": 8,
+  "section": "Fresh",
+  "section_order": 4,
+  "name": "Green Smoothie",
+  "description": "",
+  "price": 149,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 66,
+ "fields": {
+  "restaurant": 8,
+  "section": "Fresh",
+  "section_order": 4,
+  "name": "Fruit Bowl",
+  "description": "",
+  "price": 139,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 67,
+ "fields": {
+  "restaurant": 9,
+  "section": "Starters",
+  "section_order": 1,
+  "name": "Fish Fry",
+  "description": "",
+  "price": 299,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 68,
+ "fields": {
+  "restaurant": 9,
+  "section": "Starters",
+  "section_order": 1,
+  "name": "Mutton Pepper Fry",
+  "description": "",
+  "price": 349,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 69,
+ "fields": {
+  "restaurant": 9,
+  "section": "Curries",
+  "section_order": 2,
+  "name": "Chicken Chettinad",
+  "description": "",
+  "price": 279,
+  "veg": false,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 70,
+ "fields": {
+  "restaurant": 9,
+  "section": "Curries",
+  "section_order": 2,
+  "name": "Egg Curry",
+  "description": "",
+  "price": 149,
+  "veg": false,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 71,
+ "fields": {
+  "restaurant": 9,
+  "section": "Breads & Rice",
+  "section_order": 3,
+  "name": "Kerala Parotta (2 pcs)",
+  "description": "",
+  "price": 60,
+  "veg": true,
+  "bestseller": true
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 72,
+ "fields": {
+  "restaurant": 9,
+  "section": "Breads & Rice",
+  "section_order": 3,
+  "name": "Curd Rice",
+  "description": "",
+  "price": 79,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 73,
+ "fields": {
+  "restaurant": 9,
+  "section": "Breads & Rice",
+  "section_order": 3,
+  "name": "Rasam Rice",
+  "description": "",
+  "price": 99,
+  "veg": true,
+  "bestseller": false
+ }
+},
+{
+ "model": "restaurants.menuitem",
+ "pk": 74,
+ "fields": {
+  "restaurant": 9,
+  "section": "Desserts",
+  "section_order": 4,
+  "name": "Semiya Payasam",
+  "description": "",
+  "price": 69,
+  "veg": true,
+  "bestseller": false
+ }
+}
+]

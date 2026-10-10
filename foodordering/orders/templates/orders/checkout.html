@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Checkout | QuickBite{% endblock %}
+{% block content %}
+<h1>Checkout</h1>
+<div class="two">
+    <div class="panel">
+        <h3>Delivery details</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if below_min %}
+                <p class="warn">Your item total is below the &#8377;{{ cart.restaurant.min_order }} minimum for this restaurant. <a href="{% url 'cart' %}">Back to cart</a></p>
+            {% else %}
+                <button type="submit" class="primary">Place order &middot; &#8377;{{ cart.total }}</button>
+            {% endif %}
+        </form>
+    </div>
+    <div class="panel bill">
+        <h3>{{ cart.restaurant.name }}</h3>
+        {% for line in cart.lines %}
+        <div class="brow"><span>{{ line.qty }} &times; {{ line.item.name }}</span><span>&#8377;{{ line.total }}</span></div>
+        {% endfor %}
+        <hr>
+        <div class="brow"><span>Item total</span><span>&#8377;{{ cart.subtotal }}</span></div>
+        <div class="brow"><span>Delivery fee</span><span>&#8377;{{ cart.delivery_fee }}</span></div>
+        <div class="brow"><span>GST ({{ cart.tax_percent }}%)</span><span>&#8377;{{ cart.tax }}</span></div>
+        <div class="brow grand"><span>TO PAY</span><span>&#8377;{{ cart.total }}</span></div>
+    </div>
+</div>
+{% endblock %}

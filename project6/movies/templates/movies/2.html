@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ movie.title }} | CineBox{% endblock %}
+{% block content %}
+<h1>{{ movie.title }}</h1>
+<p>{{ movie.year }} &middot; {{ movie.genre }} &middot; <span class="rating">&#9733; {{ movie.rating }}</span></p>
+<p>{{ movie.about }}</p>
+
+{% if saved %}
+    <p><b>Already in your watchlist.</b></p>
+{% else %}
+    <form method="POST" action="{% url 'add' movie.id %}">
+        {% csrf_token %}
+        <button type="submit">+ Add to watchlist</button>
+    </form>
+{% endif %}
+{% endblock %}

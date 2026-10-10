@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ podcast.title }} | Spotify{% endblock %}
+{% block content %}
+<a class="muted" href="{% url 'podcast' %}">&larr; All podcasts</a>
+<div class="banner">
+    <div class="cover big" style="background: linear-gradient(135deg, hsl({{ podcast.hue }}, 60%, 40%), hsl({{ podcast.hue|add:60 }}, 60%, 25%))">&#127908;</div>
+    <div>
+        <p class="muted">PODCAST</p>
+        <h1>{{ podcast.title }}</h1>
+        <p>{{ podcast.description|truncatewords:25 }}</p>
+        <p class="muted">Hosted by {{ podcast.host }} &middot; {{ podcast.category|upper }}</p>
+    </div>
+</div>
+<h2>Episodes</h2>
+<table class="songs">
+    <tr><th>Episode</th><th>Released</th><th>Length</th></tr>
+    {% for e in episodes %}
+    <tr>
+        <td><b>{{ e.title }}</b></td>
+        <td class="muted">{{ e.released|date:"j M Y" }}</td>
+        <td class="muted">{{ e.minutes }} min</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3" class="muted">No episodes yet.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}QuickBite | Order food online{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Hungry? Order from the best restaurants near you</h1>
+    <form method="GET" class="filters">
+        <input name="q" value="{{ q }}" placeholder="Search a restaurant, cuisine or dish (try &quot;dosa&quot;)">
+        <select name="cuisine">
+            <option value="">All cuisines</option>
+            {% for c in cuisines %}
+            <option value="{{ c }}" {% if c == cuisine %}selected{% endif %}>{{ c }}</option>
+            {% endfor %}
+        </select>
+        <select name="sort">
+            <option value="rating" {% if sort == "rating" %}selected{% endif %}>Top rated</option>
+            <option value="time" {% if sort == "time" %}selected{% endif %}>Fastest delivery</option>
+            <option value="fee" {% if sort == "fee" %}selected{% endif %}>Lowest delivery fee</option>
+        </select>
+        <label class="check"><input type="checkbox" name="veg" value="1" {% if veg_only %}checked{% endif %}> Pure veg</label>
+        <button type="submit">Search</button>
+    </form>
+</section>
+
+<div class="chips">
+    <a class="chip {% if not cuisine %}on{% endif %}" href="{% url 'home' %}">All</a>
+    {% for c in cuisines %}
+    <a class="chip {% if c == cuisine %}on{% endif %}" href="?cuisine={{ c|urlencode }}">{{ c }}</a>
+    {% endfor %}
+</div>
+
+<h2>{{ restaurants|length }} restaurant{{ restaurants|length|pluralize }} for you</h2>
+<div class="grid">
+    {% for r in restaurants %}
+    <a class="rcard" href="{% url 'restaurant_detail' r.id %}">
+        <div class="banner" style="background: linear-gradient(135deg, hsl({{ r.hue }}, 70%, 55%), hsl({{ r.hue|add:40 }}, 70%, 35%))">
+            <span>{{ r.emoji }}</span>
+            {% if r.pure_veg %}<em class="tag">Pure Veg</em>{% endif %}
+        </div>
+        <div class="info">
+            <div class="row">
+                <h3>{{ r.name }}</h3>
+                <span class="rating">&#9733; {{ r.rating|floatformat:1 }}</span>
+            </div>
+            <p class="muted">{{ r.cuisine }} &middot; {{ r.area }}</p>
+            <p class="muted">{{ r.delivery_minutes }} mins &middot;
+                {% if r.delivery_fee == 0 %}<b class="free">Free delivery</b>{% else %}&#8377;{{ r.delivery_fee }} delivery{% endif %}</p>
+        </div>
+    </a>
+    {% empty %}
+    <p class="muted">No restaurants match your search. <a href="{% url 'home' %}">Clear filters</a></p>
+    {% endfor %}
+</div>
+{% endblock %}

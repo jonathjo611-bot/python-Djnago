@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Series | CineBox{% endblock %}
+{% block content %}
+<h1>Series</h1>
+<div class="grid">
+    {% for s in series %}
+    <div class="card">
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.seasons }} seasons &middot; {{ s.genre }}</p>
+        <p class="rating">&#9733; {{ s.rating }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

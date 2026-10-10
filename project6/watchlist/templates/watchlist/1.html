@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Watchlist | CineBox{% endblock %}
+{% block content %}
+<h1>My Watchlist</h1>
+{% for m in saved %}
+<div class="card wide">
+    <h3><a href="{% url 'movie_detail' m.id %}">{{ m.title }}</a></h3>
+    <p>{{ m.year }} &middot; {{ m.genre }}</p>
+    <form method="POST" action="{% url 'remove' m.id %}">
+        {% csrf_token %}
+        <button type="submit">Remove</button>
+    </form>
+</div>
+{% empty %}
+<p>Your watchlist is empty. Open a movie and press "Add to watchlist".</p>
+{% endfor %}
+{% endblock %}

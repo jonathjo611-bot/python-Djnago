@@ -1,0 +1,15 @@
+<div class="stepper">
+    <form method="POST" action="{% url 'cart_update' item.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="dec">
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" aria-label="Remove one">&minus;</button>
+    </form>
+    <span class="qty">{{ qty }}</span>
+    <form method="POST" action="{% url 'cart_update' item.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="inc">
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" aria-label="Add one more">+</button>
+    </form>
+</div>

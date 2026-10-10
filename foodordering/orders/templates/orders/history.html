@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}My orders | QuickBite{% endblock %}
+{% block content %}
+<h1>My orders</h1>
+{% for o in orders %}
+<a class="panel orow" href="{% url 'order_track' o.id %}">
+    <div>
+        <b>{{ o.restaurant.name }}</b> <span class="muted">&middot; Order #{{ o.id }}</span><br>
+        <span class="muted">{{ o.created|date:"j M Y, g:i A" }} &middot; {{ o.items.count }} item{{ o.items.count|pluralize }}</span>
+    </div>
+    <div class="right">
+        <b>&#8377;{{ o.total }}</b><br>
+        <span class="status {{ o.status }}">{{ o.get_status_display }}</span>
+    </div>
+</a>
+{% empty %}
+<div class="empty">
+    <p>You haven't ordered anything yet.</p>
+    <a class="primary" href="{% url 'home' %}">Browse restaurants</a>
+</div>
+{% endfor %}
+{% endblock %}

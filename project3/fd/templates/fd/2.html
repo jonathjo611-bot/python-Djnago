@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><title>FD Result</title><style>
+body { font-family: Arial, sans-serif; background: #eef2f7; }
+.box { width: 460px; margin: 50px auto; background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+table { width: 100%; border-collapse: collapse; } th, td { border-bottom: 1px solid #ddd; padding: 6px; text-align: left; }
+nav a { margin-right: 12px; } .errorlist { color: #c0392b; }
+</style></head><body>
+<div class="box">
+<nav><a href="/">Calculator</a><a href="/history/">History</a></nav>
+<h2>{{ d.name }}'s Deposit</h2>
+<p>Amount invested: Rs {{ d.principal }}</p>
+<p>Rate: {{ d.rate }}% for {{ d.years }} years</p>
+<p>Interest earned: <b>Rs {{ d.interest }}</b></p>
+<p>Maturity amount: <b>Rs {{ d.maturity }}</b></p>
+</div></body></html>

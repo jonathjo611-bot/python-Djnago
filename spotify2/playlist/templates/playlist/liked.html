@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Liked Songs | Spotify{% endblock %}
+{% block content %}
+<h1>&#9829; Liked Songs</h1>
+{% if songs %}
+    <p class="muted">{{ songs|length }} song{{ songs|length|pluralize }}</p>
+    {% include "partials/song_table.html" with songs=songs %}
+{% else %}
+    <p>You haven't liked any songs yet. Press the heart next to a song on any page.</p>
+{% endif %}
+{% endblock %}

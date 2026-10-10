@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}Artists | Spotify{% endblock %}
+{% block content %}
+<h1>Artists</h1>
+<div class="chips">
+    <a class="chip {% if not current %}on{% endif %}" href="{% url 'artist' %}">All</a>
+    {% for g in genres %}
+    <a class="chip {% if g == current %}on{% endif %}" href="?genre={{ g|urlencode }}">{{ g }}</a>
+    {% endfor %}
+</div>
+<div class="grid">
+    {% for a in artists %}
+    <a class="card" href="{% url 'artist_detail' a.id %}">
+        <div class="avatar" style="background: hsl({{ a.hue }}, 55%, 35%)">{{ a.name|slice:":1" }}</div>
+        <h3>{{ a.name }}</h3>
+        <p class="muted">{{ a.genre }}</p>
+        <p class="muted">{{ a.followers|intcomma }} follower{{ a.followers|pluralize }}</p>
+    </a>
+    {% empty %}
+    <p class="muted">No artists in this genre.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load humanize %}
+<table class="songs">
+    <tr><th>#</th><th>Title</th><th>Album</th><th>Plays</th><th>Time</th><th></th></tr>
+    {% for song in songs %}
+    <tr>
+        <td class="muted">{{ forloop.counter }}</td>
+        <td>
+            <b>{{ song.title }}</b><br>
+            <a class="muted" href="{% url 'artist_detail' song.artist.id %}">{{ song.artist.name }}</a>
+        </td>
+        <td class="muted">{{ song.album }}</td>
+        <td class="muted">{{ song.plays|intcomma }}</td>
+        <td class="muted">{{ song.duration_display }}</td>
+        <td>
+            <form method="POST" action="{% url 'like' song.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                {% if song.id in liked %}
+                    <button class="heart on" title="Remove from Liked">&#9829;</button>
+                {% else %}
+                    <button class="heart" title="Add to Liked">&#9825;</button>
+                {% endif %}
+            </form>
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="6" class="muted">No songs here yet.</td></tr>
+    {% endfor %}
+</table>
