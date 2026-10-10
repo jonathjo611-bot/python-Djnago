@@ -1,0 +1,24 @@
+{% extends "podcast/podcast.html" %}
+
+{% block extra_head %}
+{{ block.super }}
+<style>
+    .cards { display: flex; gap: 18px; flex-wrap: wrap; }
+    .podcast-card { background: rgba(0, 0, 0, .3); padding: 18px 24px; border-radius: 10px; min-width: 220px; }
+    .podcast-card h3 { margin-top: 0; }
+    .muted { color: #f3cdb8; font-size: 14px; }
+</style>
+{% endblock %}
+
+{% block app_content %}
+<h1>Podcasts</h1>
+<div class="cards">
+    {% for p in podcasts %}
+    <div class="podcast-card">
+        <h3>{{ p.title }}</h3>
+        <p>Hosted by {{ p.host }}</p>
+        <p class="muted">{{ p.category }} &middot; {{ p.episodes }} episodes</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

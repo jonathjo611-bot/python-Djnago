@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Spotify{% endblock %}</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #121212; color: #fff; }
+        a { color: inherit; }
+        .navbar { height: 64px; display: flex; align-items: center; gap: 22px; padding: 0 24px; background: #000; }
+        .navbar a { color: #b3b3b3; text-decoration: none; font-weight: bold; }
+        .navbar a:hover { color: #fff; }
+        .navbar .brand { color: #1db954; font-size: 22px; margin-right: 20px; }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <a class="brand" href="{% url 'home' %}">Spotify</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'playlist-detail' %}">Playlists</a>
+        <a href="{% url 'artist-detail' %}">Artists</a>
+        <a href="{% url 'podcast-detail' %}">Podcasts</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Artists | Spotify{% endblock %}
+
+{% block extra_head %}
+<style>
+    .app-page { min-height: calc(100vh - 64px); padding: 30px 40px; background: #3b1c5a; }  /* dark purple */
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="app-page">
+    {% block app_content %}{% endblock %}
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "artist/artist.html" %}
+
+{% block extra_head %}
+{{ block.super }}
+<style>
+    .filter-card { background: rgba(0, 0, 0, .3); padding: 14px 20px; border-radius: 10px; margin-bottom: 18px; max-width: 760px; }
+    .filters { list-style: none; padding: 0; margin: 0; }
+    .filters li { padding: 6px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+    .label { display: inline-block; min-width: 290px; color: #d9b8ff; font-family: Consolas, monospace; font-size: 13px; }
+</style>
+{% endblock %}
+
+{% block app_content %}
+<h1>Artists</h1>
+<p>Total artists: <b>{{ artists|length }}</b></p>
+
+{% for artist in artists %}
+<div class="filter-card">
+    <h2>{{ artist.name|title }}</h2>
+    <ul class="filters">
+        <li><span class="label">artist.name (raw)</span> {{ artist.name }}</li>
+        <li><span class="label">artist.name|title</span> {{ artist.name|title }}</li>
+        <li><span class="label">artist.name|upper</span> {{ artist.name|upper }}</li>
+        <li><span class="label">artist.name|lower</span> {{ artist.name|lower }}</li>
+        <li><span class="label">artist.bio|truncatewords:5</span> {{ artist.bio|truncatewords:5 }}</li>
+        <li><span class="label">artist.bio|default:"No bio available"</span> {{ artist.bio|default:"No bio available" }}</li>
+        <li><span class="label">artist.songs|length</span> {{ artist.songs|length }} song{{ artist.songs|length|pluralize }}</li>
+        <li><span class="label">artist.release_date|date:"F Y"</span> {{ artist.release_date|date:"F Y" }}</li>
+    </ul>
+</div>
+{% endfor %}
+{% endblock %}

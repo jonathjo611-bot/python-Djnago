@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Spotify | Home{% endblock %}
+
+{% block extra_head %}
+<style>
+    /* Q2: internal CSS that makes the cards look clickable */
+    .page { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+    .page ul a { color: #1db954; }
+    .cards { display: flex; gap: 18px; flex-wrap: wrap; }
+    .card-link { text-decoration: none; }
+    .app-card { border: 2px solid #1db954; padding: 28px 40px; border-radius: 10px;
+                font-size: 20px; font-weight: bold; cursor: pointer; }
+    .app-card:hover { background: #1db954; color: #000; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page">
+    <h1>Welcome to Spotify</h1>
+
+    {# Q1: a simple list of links #}
+    <h2>Quick links</h2>
+    <ul>
+        <li><a href="{% url 'artist-detail' %}">Artist</a></li>
+        <li><a href="{% url 'playlist-detail' %}">Playlist</a></li>
+        <li><a href="{% url 'podcast-detail' %}">Podcast</a></li>
+    </ul>
+
+    {# Q2: clickable div cards - the whole card sits inside the <a> #}
+    <h2>Browse</h2>
+    <div class="cards">
+        <a class="card-link" href="{% url 'artist-detail' %}">
+            <div class="app-card">Artist</div>
+        </a>
+        <a class="card-link" href="{% url 'playlist-detail' %}">
+            <div class="app-card">Playlist</div>
+        </a>
+        <a class="card-link" href="{% url 'podcast-detail' %}">
+            <div class="app-card">Podcast</div>
+        </a>
+    </div>
+</div>
+{% endblock %}
