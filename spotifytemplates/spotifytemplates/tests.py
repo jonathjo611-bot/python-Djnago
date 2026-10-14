@@ -1,13 +1,15 @@
 import re
+from pathlib import Path
 
 from django.conf import settings
+from django.contrib.staticfiles import finders
 from django.test import TestCase
 from django.urls import reverse
 
 PAGES = ["home", "artist-detail", "playlist-detail", "podcast-detail"]
 
 
-class Section1Templates(TestCase):
+class TemplatesSection(TestCase):
     # ---- Q1 ----
     def test_q1_home_renders_heading_and_links(self):
         r = self.client.get('/')
@@ -28,10 +30,9 @@ class Section1Templates(TestCase):
         self.assertEqual([c[1] for c in cards], ["Artist", "Playlist", "Podcast"])
         self.assertEqual([c[0] for c in cards], ["/artist/", "/playlist/", "/podcast/"])
 
-    def test_q2_cards_use_internal_css_with_border_padding_pointer(self):
-        html = self.client.get('/').content.decode()
-        self.assertIn("<style>", html)
-        block = html[html.index(".app-card {"):].split("}")[0]
+    def test_q2_cards_are_styled_as_clickable(self):
+        css = Path(finders.find("css/style.css")).read_text()
+        block = css[css.index(".app-card {"):].split("}")[0]
         for needed in ("border", "padding", "cursor: pointer"):
             self.assertIn(needed, block)
 
@@ -47,16 +48,20 @@ class Section1Templates(TestCase):
     # ---- Q4 ----
     def test_q4_each_app_has_its_own_base_and_colour(self):
         expected = {
-            "artist-detail": ("artist/artist.html", "#3b1c5a"),
-            "playlist-detail": ("playlist/playlist.html", "#0f5c5c"),
-            "podcast-detail": ("podcast/podcast.html", "#7a2e0e"),
+            "artist-detail": ("artist/artist.html", "artist-theme", "#3b1c5a"),
+            "playlist-detail": ("playlist/playlist.html", "playlist-theme", "#0f5c5c"),
+            "podcast-detail": ("podcast/podcast.html", "podcast-theme", "#7a2e0e"),
         }
-        for name, (template, colour) in expected.items():
+        css = Path(finders.find("css/style.css")).read_text()
+        colours = set()
+        for name, (template, cls, colour) in expected.items():
             r = self.client.get(reverse(name))
             self.assertTemplateUsed(r, template)
             self.assertTemplateUsed(r, "base.html")             # app template extends the project base
-            self.assertContains(r, f"background: {colour}")
-        self.assertEqual(len({c for _, c in expected.values()}), 3)   # three different colours
+            self.assertContains(r, f'class="app-page {cls}"')
+            self.assertRegex(css, rf"\.{cls}\s*\{{\s*background:\s*{colour}")
+            colours.add(colour)
+        self.assertEqual(len(colours), 3)                        # all three are different
 
     # ---- Q5 ----
     def test_q5_filters_show_correct_output(self):
@@ -67,13 +72,13 @@ class Section1Templates(TestCase):
         self.assertContains(r, "dj kavi")                        # |lower
         self.assertContains(r, "No bio available")               # |default (empty bio)
         self.assertContains(r, "March 2024")                     # |date:"F Y"
-        self.assertContains(r, "4 songs")                        # |length (+ pluralize)
-        self.assertContains(r, "Indie pop singer who writes …")  # |truncatewords:5
+        self.assertContains(r, "4 songs")                        # |length + |pluralize
+        self.assertContains(r, "Indie pop singer who writes …")          # |truncatewords:5 (first 5 words)
 
     # ---- Q6 ----
     def test_q6_all_paths_are_named(self):
         for name in PAGES:
-            reverse(name)                                        # raises if a name is missing
+            reverse(name)                                        # raises if the name is missing
 
     def test_q6_no_hardcoded_links_in_any_template(self):
         offenders = []
@@ -115,3 +120,23 @@ class Section1Templates(TestCase):
         self.assertContains(r, "No songs added yet. Start building your playlist!")
         self.assertNotContains(r, "Now Playing")
         self.assertNotContains(self.client.get('/playlist/'), "No songs added yet")
+
+
+class StaticFilesSection(TestCase):
+    def test_s1_css_lives_in_static_and_is_linked(self):
+        self.assertIsNotNone(finders.find("css/style.css"))
+        self.assertEqual(settings.STATIC_URL, "/static/")
+        self.assertIn(settings.BASE_DIR / "static", settings.STATICFILES_DIRS)
+        for name in PAGES:
+            r = self.client.get(reverse(name))
+            self.assertContains(r, '<link rel="stylesheet" href="/static/css/style.css">', html=True)
+
+    def test_s1_no_internal_css_left_in_templates(self):
+        for path in settings.BASE_DIR.rglob("*.html"):
+            self.assertNotIn("<style", path.read_text(), path.name)
+
+    def test_s2_logo_in_navbar(self):
+        self.assertIsNotNone(finders.find("images/logo.png"))
+        for name in PAGES:
+            self.assertContains(self.client.get(reverse(name)),
+                                '<img src="/static/images/logo.png" alt="App Logo">', html=True)

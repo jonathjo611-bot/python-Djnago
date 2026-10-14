@@ -1,21 +1,6 @@
 {% extends "playlist/playlist.html" %}
 {% load humanize %}
 
-{% block extra_head %}
-{{ block.super }}
-<style>
-    .songs { max-width: 760px; padding-left: 28px; }
-    .song { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, .15); }
-    .muted { color: #cfe8e8; font-size: 14px; }
-    .tag { display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 12px; font-size: 12px; font-weight: bold; }
-    .tag.now { background: #1db954; color: #000; }
-    .tag.trending { background: #e8115b; color: #fff; }
-    .tag.popular { background: #ffb400; color: #000; }
-    .tag.regular { background: #535353; color: #fff; }
-    .empty { font-size: 18px; }
-</style>
-{% endblock %}
-
 {% block app_content %}
 <h1>My Playlist</h1>
 

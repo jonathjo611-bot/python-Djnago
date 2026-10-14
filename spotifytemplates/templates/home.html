@@ -2,19 +2,6 @@
 
 {% block title %}Spotify | Home{% endblock %}
 
-{% block extra_head %}
-<style>
-    /* Q2: internal CSS that makes the cards look clickable */
-    .page { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
-    .page ul a { color: #1db954; }
-    .cards { display: flex; gap: 18px; flex-wrap: wrap; }
-    .card-link { text-decoration: none; }
-    .app-card { border: 2px solid #1db954; padding: 28px 40px; border-radius: 10px;
-                font-size: 20px; font-weight: bold; cursor: pointer; }
-    .app-card:hover { background: #1db954; color: #000; }
-</style>
-{% endblock %}
-
 {% block content %}
 <div class="page">
     <h1>Welcome to Spotify</h1>

@@ -1,15 +1,5 @@
 {% extends "artist/artist.html" %}
 
-{% block extra_head %}
-{{ block.super }}
-<style>
-    .filter-card { background: rgba(0, 0, 0, .3); padding: 14px 20px; border-radius: 10px; margin-bottom: 18px; max-width: 760px; }
-    .filters { list-style: none; padding: 0; margin: 0; }
-    .filters li { padding: 6px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); }
-    .label { display: inline-block; min-width: 290px; color: #d9b8ff; font-family: Consolas, monospace; font-size: 13px; }
-</style>
-{% endblock %}
-
 {% block app_content %}
 <h1>Artists</h1>
 <p>Total artists: <b>{{ artists|length }}</b></p>
